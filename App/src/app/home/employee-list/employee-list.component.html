@@ -1,0 +1,38 @@
+<body id="page-top">
+        <div id="wrapper">
+        <app-sidebar></app-sidebar>
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <app-header></app-header>
+                </div>
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                 <tr>
+                    <th>EmpId</th>
+                    <th>FullName</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of empList">
+            
+                    <td>{{ user.EmpID }}</td>
+                    <td>{{ user.FirstName + " " +user.LastName }}</td>
+                    <td>{{ user.Gender }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td>{{ user.MobileNo }}</td>
+                    <td><button class="btn btn-secondary" (click)="editEmpList(user._id)">Edit</button></td>
+                    <td><button class="btn btn-danger" (click)= "onClick(user._id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-footer></app-footer>
+    </div>
+ </div>
+</body>

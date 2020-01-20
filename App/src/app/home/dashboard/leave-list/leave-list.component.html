@@ -1,0 +1,41 @@
+<body id="page-top">
+  <div id="wrapper">
+  <app-sidebar></app-sidebar>
+      <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content">
+              <app-header></app-header>
+          </div>
+<div class="col-sm-12">
+    <table class="table" style="font-size: 13px">
+        <thead>
+          <tr>
+            <th>FromDate</th>
+            <th>ToDate</th>
+            <th>EmpId</th>
+            <th>FullName</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Leave Reason</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of leaveDatas">
+            <td>{{ user.FromDate }}</td>
+            <td>{{ user.ToDate }}</td>
+            <td>{{ user.EmpID }}</td>
+            <td>{{ user.FirstName + " " +user.LastName }}</td>
+            <td>{{ user.Email }}</td>
+            <td>{{ user.MobileNo }}</td>
+            <td>{{ user.ReasonForLeave }}</td>
+            <td><button class="btn btn-secondary"  (click)="onEdit(user._id)">Edit</button></td>
+            <td><button class="btn btn-danger" (click) = "onDelete(user._id)">Delete</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>
+</div>
+</div>
+</body>

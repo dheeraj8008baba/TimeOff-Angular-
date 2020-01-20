@@ -1,0 +1,69 @@
+<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4"></h1>
+                  </div>
+                  <p class="validation-message">{{err}}</p>
+                  <form class="user" #formData="ngForm" (ngSubmit) = "formData.valid && onSubmit(formData.value)">
+                    <div class="form-group">
+                      <input type="text" #email="ngModel" [(ngModel)] = "logData.email" class="form-control form-control-user" 
+                      id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." required
+                      [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :formData.submitted && !email.valid }">
+                      <div *ngIf="formData.submitted && email?.errors">
+                       <label *ngIf="email.errors.required" class="validation-message">This field is required</label>
+                        <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address</label>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <input type="password" #cnfpass="ngModel" [(ngModel)] = "logData.cnfpass" name="cnfpass" class="form-control form-control-user" 
+                      id="exampleInputPassword" placeholder="Password" minlength="4" required [ngClass]="{'invalid-textbox':formData.submitted && !cnfpass.valid}">
+                      <div *ngIf="formData.submitted && cnfpass?.errors">
+                       <label *ngIf="cnfpass.errors.required" class="validation-message">This field is required</label>
+                       <label *ngIf="cnfpass.errors.minlength" class="validation-message">Enter atleast 4 characters</label>
+                     </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-user btn-block" type="submit" >
+                      Login
+                    </button>
+                    <hr>
+                  </form>
+                  <div class="text-center">
+                    <a class="small" >Forgot Password?</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small">Create an Account!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
